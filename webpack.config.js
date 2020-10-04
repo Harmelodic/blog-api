@@ -1,7 +1,7 @@
 const nodeExternals = require('webpack-node-externals');
 
 const SRC = __dirname + '/src/';
-const DIST = __dirname + '/';
+const DIST = __dirname + '/dist/';
 
 module.exports = {
   target: 'node',
@@ -12,7 +12,7 @@ module.exports = {
     filename: 'server.js',
   },
   node: {
-    __dirname: false
+    __dirname: false,
   },
   externals: [nodeExternals()],
   module: {

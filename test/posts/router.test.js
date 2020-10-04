@@ -12,23 +12,15 @@ const mockData = [
   },
 ];
 
-jest.mock('../../src/services/post', () => ({
-  fetchPosts: () => {
-    return new Promise((resolve, reject) => {
-      resolve(mockData);
-    });
-  },
-  fetchPost: (id) => {
-    return new Promise((resolve, reject) => {
-      resolve(mockData.find((data) => data.id === id));
-    });
-  },
+jest.mock('../../src/posts/service', () => ({
+  fetchPosts: async () => mockData,
+  fetchPost: async (id) => mockData.find((data) => data.id === id),
 }));
 
-describe('Router tests - /api', () => {
-  it('/api/posts returns posts', () => {
+describe('Router tests - /posts', () => {
+  it('/ returns posts', () => {
     request(app)
-        .get('/api/posts')
+        .get('/posts')
         .expect('Access-Control-Allow-Origin', '*')
         .expect('Content-Type', /json/)
         .expect('Content-Length', JSON.stringify(mockData).length.toString())
@@ -38,9 +30,9 @@ describe('Router tests - /api', () => {
         });
   });
 
-  it('/api/posts returns single post', () => {
+  it('/post/:id returns single post', () => {
     request(app)
-        .get('/api/posts/0')
+        .get('/posts/0')
         .expect('Access-Control-Allow-Origin', '*')
         .expect('Content-Type', /json/)
         .expect('Content-Length',

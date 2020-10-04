@@ -1,13 +1,14 @@
 import fetch from 'node-fetch';
+import config from '../config';
 
 const repository = {};
 
 repository.fetchPosts = async () => {
-  return (await fetch('https://harmelodic.gitlab.io/scribbles-content/posts.json')).json();
+  return (await fetch(`${config.contentURI}/posts.json`)).json();
 };
 
 repository.fetchPost = async (id) => {
-  const posts = await (await fetch('https://harmelodic.gitlab.io/scribbles-content/posts.json')).json();
+  const posts = await (await fetch(`${config.contentURI}/posts.json`)).json();
   return posts.find((post) => post.datePosted === id);
 };
 

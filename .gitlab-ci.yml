@@ -8,11 +8,22 @@ stages:
   - package
   - deploy
 
-npm:
+npm-test:
   stage: build
   image: node:14.8.0
   script:
     - npm i
+    - npm test
+
+npm-build:
+  stage: build
+  image: node:14.8.0
+  script:
+    - npm i
+    - npm run build
+  artifacts:
+    paths:
+      - dist
 
 docker-gitlab:
   stage: package

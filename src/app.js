@@ -1,6 +1,6 @@
 import express from 'express';
-import health from './health/router';
-import posts from './posts/router';
+import health from './health/controller';
+import posts from './posts/controller';
 
 const app = express();
 

@@ -12,8 +12,8 @@ const mockData = [
 ];
 
 jest.mock('../../src/posts/repository', () => ({
-  fetchPosts: async () => mockData,
-  fetchPost: async (id) => mockData.find((data) => data.id === id),
+  fetchAll: async () => mockData,
+  fetchById: async (id) => mockData.find((data) => data.id === id),
 }));
 
 describe('testSubject tests', () => {

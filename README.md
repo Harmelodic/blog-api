@@ -20,7 +20,7 @@ CREATE TABLE posts
     title       VARCHAR(255) NOT NULL,
     route       VARCHAR(255) NOT NULL,
     datePosted  BIGINT       NOT NULL,
-    lastUpdated VARCHAR(255) NOT NULL,
+    lastUpdated BIGINT       NOT NULL,
     fileName    VARCHAR(255) NOT NULL,
     category    VARCHAR(255) NOT NULL,
     PRIMARY KEY (datePosted)

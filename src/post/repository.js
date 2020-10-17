@@ -17,8 +17,9 @@ repository.fetchAll = async () => {
 };
 
 repository.fetchById = async (id) => {
-  return databaseConnection
+  const posts = await databaseConnection
       .query(`SELECT * FROM posts WHERE datePosted=${id}`);
+  return posts[0];
 };
 
 export default repository;

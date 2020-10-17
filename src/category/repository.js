@@ -12,7 +12,10 @@ const databaseConnection = sql({
 const repository = {};
 
 repository.fetchAll = async () => {
-  return databaseConnection.query('SELECT DISTINCT category FROM posts');
+  const categorySet = await databaseConnection
+      .query('SELECT DISTINCT category FROM posts ORDER BY category ASC');
+
+  return categorySet.map((entry) => entry.category);
 };
 
 export default repository;

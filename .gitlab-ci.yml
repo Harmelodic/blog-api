@@ -68,7 +68,7 @@ cloud-run:
         --platform managed
         --port 8080
         --set-env-vars=CONTENT_URI=$CONTENT_URI
-        --set-cloudsql-instances=[harm-personal-projects:europe-west2:prod-mysql]
+        --set-cloudsql-instances=harm-personal-projects:europe-west2:prod-mysql
         --allow-unauthenticated
   only:
     - master

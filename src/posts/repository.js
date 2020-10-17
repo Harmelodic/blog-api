@@ -12,11 +12,15 @@ const databaseConnection = sql({
 
 const repository = {};
 
-repository.fetchPosts = async () => {
+repository.fetchPostDb = async () => {
   const dbPosts = await databaseConnection
       .query('SELECT * FROM posts ORDER BY datePosted DESC');
   console.log(JSON.stringify(dbPosts));
+  return dbPosts;
+};
 
+repository.fetchPosts = async () => {
+  repository.fetchPostDb();
   return (await fetch(`${config.contentURI}/posts.json`)).json();
 };
 

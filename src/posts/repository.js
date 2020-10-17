@@ -12,19 +12,27 @@ const databaseConnection = sql({
 
 const repository = {};
 
-repository.fetchPostDb = async () => {
-  const dbPosts = await databaseConnection
+repository.fetchAll = async () => {
+  const posts = await databaseConnection
       .query('SELECT * FROM posts ORDER BY datePosted DESC');
-  console.log(JSON.stringify(dbPosts));
-  return dbPosts;
+  console.log(JSON.stringify(posts));
+  return posts;
+};
+
+repository.fetchById = async (id) => {
+  const post = await databaseConnection
+      .query(`SELECT * FROM posts WHERE datePosted=${id}`);
+  console.log(JSON.stringify(post));
+  return post;
 };
 
 repository.fetchPosts = async () => {
-  repository.fetchPostDb();
+  repository.fetchAll();
   return (await fetch(`${config.contentURI}/posts.json`)).json();
 };
 
 repository.fetchPost = async (id) => {
+  repository.fetchById(id);
   const posts = await (await fetch(`${config.contentURI}/posts.json`)).json();
   return posts.find((post) => post.datePosted === id);
 };

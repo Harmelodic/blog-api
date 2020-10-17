@@ -1,6 +1,7 @@
 import postRepository from '../../src/posts/repository';
 
-postRepository.fetchPostDb = jest.fn();
+postRepository.fetchAll = jest.fn();
+postRepository.fetchById = jest.fn();
 
 describe('post repository', () => {
   it('should return the posts', async () => {

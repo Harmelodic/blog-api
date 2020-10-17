@@ -22,15 +22,8 @@ CREATE TABLE posts
     datePosted  BIGINT       NOT NULL,
     lastUpdated VARCHAR(255) NOT NULL,
     fileName    VARCHAR(255) NOT NULL,
+    category    VARCHAR(255) NOT NULL,
     PRIMARY KEY (datePosted)
-);
-
-CREATE TABLE labels
-(
-    id      INT          NOT NULL AUTO_INCREMENT,
-    post_id BIGINT       NOT NULL,
-    label   VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id)
 );
 ```
 

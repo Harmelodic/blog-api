@@ -1,8 +1,5 @@
 image: docker:latest
 
-variables:
-  GCP_REGISTRY_IMAGE: "gcr.io/$GCP_PROJECT_ID/$CI_PROJECT_NAME"
-
 stages:
   - build
   - package
@@ -46,6 +43,7 @@ docker-gcp:
   before_script:
     - echo $GCP_SERVICE_KEY | docker login -u _json_key --password-stdin https://gcr.io
   script:
+    - GCP_REGISTRY_IMAGE="gcr.io/$GCP_PROJECT_ID/$CI_PROJECT_NAME"
     - docker build -t "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}" .
     - docker tag "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}" "${GCP_REGISTRY_IMAGE}:latest"
     - docker push "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}"
@@ -53,13 +51,14 @@ docker-gcp:
   only:
     - master
 
-cloud-run:
+cloud-run-prod:
   stage: deploy
   image: google/cloud-sdk:latest
   before_script:
     - echo $GCP_SERVICE_KEY > gcloud-service-key.json && gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_PROJECT_ID
   script:
+    - DB_INSTANCE_CONNECTION_NAME=harm-personal-projects:europe-west2:prod-mysql
     - >
         gcloud run deploy
         $CI_PROJECT_NAME
@@ -67,8 +66,8 @@ cloud-run:
         --region europe-north1
         --platform managed
         --port 8080
-        --set-env-vars=CONTENT_URI=$CONTENT_URI
-        --set-cloudsql-instances=harm-personal-projects:europe-west2:prod-mysql
+        --set-env-vars=CONTENT_URI=$CONTENT_URI,DB_SOCKET_PATH=/cloudsql/$DB_INSTANCE_CONNECTION_NAME
+        --set-cloudsql-instances=$DB_INSTANCE_CONNECTION_NAME
         --allow-unauthenticated
   only:
     - master

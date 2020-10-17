@@ -6,12 +6,12 @@ const router = Router();
 
 router.route('/')
     .get((req, res) =>
-      postService.fetchPosts().then((posts) =>
+      postService.fetchAll().then((posts) =>
         res.send(posts)));
 
 router.route('/:id')
     .get((req, res) =>
-      postService.fetchPost(parseInt(req.params.id)).then((post) =>
+      postService.fetchById(parseInt(req.params.id)).then((post) =>
         res.send(post)));
 
 export default router;

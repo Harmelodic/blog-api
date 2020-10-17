@@ -12,13 +12,13 @@ const mockData = [
   },
 ];
 
-jest.mock('../../src/posts/service', () => ({
-  fetchPosts: async () => mockData,
-  fetchPost: async (id) => mockData.find((data) => data.id === id),
+jest.mock('../../src/post/service', () => ({
+  fetchAll: async () => mockData,
+  fetchById: async (id) => mockData.find((data) => data.id === id),
 }));
 
-describe('Router tests - /posts', () => {
-  it('/ returns posts', () => {
+describe('Router tests - /post', () => {
+  it('/ returns all posts', () => {
     request(app)
         .get('/posts')
         .expect('Access-Control-Allow-Origin', '*')
@@ -30,7 +30,7 @@ describe('Router tests - /posts', () => {
         });
   });
 
-  it('/post/:id returns single post', () => {
+  it('/:id returns correct single post', () => {
     request(app)
         .get('/posts/0')
         .expect('Access-Control-Allow-Origin', '*')

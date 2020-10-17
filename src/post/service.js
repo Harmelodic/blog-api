@@ -2,11 +2,11 @@ import postRepository from './repository';
 
 const service = {};
 
-service.fetchPosts = async () => {
+service.fetchAll = async () => {
   return postRepository.fetchAll();
 };
 
-service.fetchPost = (id) => {
+service.fetchById = (id) => {
   return postRepository.fetchById(id);
 };
 

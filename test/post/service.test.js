@@ -1,4 +1,4 @@
-import postService from '../../src/posts/service';
+import postService from '../../src/post/service';
 
 const mockData = [
   {
@@ -11,20 +11,20 @@ const mockData = [
   },
 ];
 
-jest.mock('../../src/posts/repository', () => ({
+jest.mock('../../src/post/repository', () => ({
   fetchAll: async () => mockData,
   fetchById: async (id) => mockData.find((data) => data.id === id),
 }));
 
-describe('testSubject tests', () => {
-  it('returns posts from repo', () => {
-    postService.fetchPosts().then((received) => {
+describe('Post Service Tests', () => {
+  it('returns all posts', () => {
+    postService.fetchAll().then((received) => {
       expect(received).toEqual(mockData);
     });
   });
 
-  it('returns posts from repo', () => {
-    postService.fetchPost(0).then((received) => {
+  it('returns correct individual posts', () => {
+    postService.fetchById(0).then((received) => {
       expect(received).toEqual(mockData.find((data) => data.id === 0));
     });
   });

@@ -19,22 +19,17 @@
   "author": "Harmelodic",
   "dependencies": {
     "@harmelodic/interfaces": "^2.0.2",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "eslint": "^7.10.0",
     "eslint-config-google": "^0.14.0",
     "jest": "^26.4.2",
-    "supertest": "^5.0.0",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.5.2"
+    "supertest": "^5.0.0"
   },
   "directories": {
     "test": "test"

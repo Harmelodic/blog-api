@@ -1,23 +1,19 @@
 {
-  "name": "scribbles-api",
+  "name": "api",
   "version": "1.0.0",
   "description": "A place for opinions, lists, reviews and more!",
   "scripts": {
     "test": "jest",
-    "updateSnapshots": "jest --updateSnapshot",
     "lint": "eslint src/* --fix",
     "build": "webpack",
-    "start": "webpack && node dist/server.js",
-    "docker:build": "docker build -t $npm_package_name:latest .",
-    "docker:run": "docker run --name $npm_package_name -d -p 8080:8080 $npm_package_name:latest",
-    "docker": "npm run build && npm run docker:build && npm run docker:run",
-    "docker:destroy": "docker stop $npm_package_name && docker rm $npm_package_name && docker rmi $npm_package_name"
+    "start": "webpack && node dist/server.js"
   },
   "main": "webpack.config.js",
   "license": "UNLICENSED",
   "keywords": [
     "blog",
-    "harmelodic"
+    "harmelodic",
+    "scribbles"
   ],
   "author": "Harmelodic",
   "dependencies": {

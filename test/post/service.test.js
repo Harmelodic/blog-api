@@ -1,4 +1,4 @@
-import postService from '../../src/post/service';
+import postService from '../../src/post/service.js';
 
 const mockData = [
   {
@@ -11,7 +11,7 @@ const mockData = [
   },
 ];
 
-jest.mock('../../src/post/repository', () => ({
+jest.mock('../../src/post/repository.js', () => ({
   fetchAll: async () => mockData,
   fetchById: async (id) => mockData.find((data) => data.id === id),
 }));

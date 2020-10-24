@@ -1,11 +1,11 @@
-import categoryService from '../../src/category/service';
+import categoryService from '../../src/category/service.js';
 
 const mockData = [
   'Category 1',
   'Category 2',
 ];
 
-jest.mock('../../src/category/repository', () => ({
+jest.mock('../../src/category/repository.js', () => ({
   fetchAll: async () => mockData,
 }));
 

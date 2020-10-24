@@ -1,4 +1,4 @@
-import postRepository from './repository';
+import postRepository from './repository.js';
 
 const service = {};
 

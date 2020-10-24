@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../../src/app';
+import app from '../../src/app.js';
 
 const mockData = [
   {
@@ -12,7 +12,7 @@ const mockData = [
   },
 ];
 
-jest.mock('../../src/post/service', () => ({
+jest.mock('../../src/post/service.js', () => ({
   fetchAll: async () => mockData,
   fetchById: async (id) => mockData.find((data) => data.id === id),
 }));

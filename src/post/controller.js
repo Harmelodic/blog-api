@@ -1,5 +1,5 @@
-import {Router} from 'express';
-import postService from './service';
+import { Router } from 'express';
+import postService from './service.js';
 
 // eslint-disable-next-line new-cap
 const router = Router();

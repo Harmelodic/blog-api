@@ -1,12 +1,12 @@
 import request from 'supertest';
-import app from '../../src/app';
+import app from '../../src/app.js';
 
 const mockData = [
   'Category 1',
   'Category 2',
 ];
 
-jest.mock('../../src/category/service', () => ({
+jest.mock('../../src/category/service.js', () => ({
   fetchAll: async () => mockData,
 }));
 

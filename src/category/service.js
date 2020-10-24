@@ -1,4 +1,4 @@
-import categoryRepository from './repository';
+import categoryRepository from './repository.js';
 
 const service = {};
 

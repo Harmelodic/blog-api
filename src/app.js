@@ -1,7 +1,7 @@
 import express from 'express';
-import health from './health/controller';
-import posts from './post/controller';
-import category from './category/controller';
+import health from './health/controller.js';
+import posts from './post/controller.js';
+import category from './category/controller.js';
 
 const app = express();
 

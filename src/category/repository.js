@@ -1,5 +1,5 @@
-import {sql} from '@harmelodic/interfaces';
-import config from '../config';
+import { sql } from '@harmelodic/interfaces';
+import config from '../config.js';
 
 const databaseConnection = sql({
   socketPath: config.db.socketPath,

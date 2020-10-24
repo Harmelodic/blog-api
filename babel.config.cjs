@@ -1,3 +1,5 @@
+// For Jest Tests, until Jest completely supports ES6 modules
+
 module.exports = {
   presets: [
     [
@@ -8,6 +10,5 @@ module.exports = {
         },
       },
     ],
-    '@babel/preset-react',
   ],
 };

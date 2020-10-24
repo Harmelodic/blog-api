@@ -6,9 +6,10 @@
     "test": "jest",
     "lint": "eslint src/* --fix",
     "build": "webpack",
-    "start": "webpack && node dist/server.js"
+    "start": "node src/index.js"
   },
-  "main": "webpack.config.js",
+  "main": "src/index.js",
+  "type": "module",
   "license": "UNLICENSED",
   "keywords": [
     "blog",

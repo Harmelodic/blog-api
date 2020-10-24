@@ -1,4 +1,4 @@
-FROM node:14.14.0
+FROM node:14
 ENV DB_HOST host.docker.internal
 
 # Copy Server files

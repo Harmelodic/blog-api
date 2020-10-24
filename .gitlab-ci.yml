@@ -10,7 +10,7 @@ stages:
 
 npm-test:
   stage: build
-  image: node:14.14.0
+  image: node:14
   script:
     - npm i
     - npm test

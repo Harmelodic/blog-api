@@ -29,9 +29,8 @@ docker-gcp:
   stage: package
   services:
     - docker:dind
-  before_script:
-    - echo $GCP_SERVICE_KEY | base64 -d | docker login -u _json_key --password-stdin https://gcr.io
   script:
+    - echo $GCP_SERVICE_KEY | base64 -d | docker login -u _json_key --password-stdin https://gcr.io
     - docker build -t "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}" .
     - docker tag "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}" "${GCP_REGISTRY_IMAGE}:latest"
     - docker push "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}"
@@ -42,16 +41,15 @@ docker-gcp:
 cloud-run-prod:
   stage: deploy
   image: google/cloud-sdk:latest
-  before_script:
+  script:
     - echo $GCP_SERVICE_KEY | base64 -d > gcloud-service-key.json && gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_PROJECT_ID
-  script:
-    - DB_INSTANCE_CONNECTION_NAME=harm-personal-projects:europe-west2:prod-mysql
+    - DB_INSTANCE_CONNECTION_NAME=$GCP_PROJECT_ID:$GCP_REGION:$GCP_DB_INSTANCE
     - >
         gcloud run deploy
         $CI_PROJECT_NAME
         --image "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}"
-        --region europe-north1
+        --region $GCP_REGION
         --platform managed
         --port 8080
         --set-env-vars=CONTENT_URI=$CONTENT_URI,DB_SOCKET_PATH=/cloudsql/$DB_INSTANCE_CONNECTION_NAME

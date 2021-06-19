@@ -43,7 +43,7 @@ cloud-run-prod:
         --region $GCP_REGION
         --platform managed
         --port 8080
-        --set-env-vars=CONTENT_URI=$CONTENT_URI,DB_SOCKET_PATH=/cloudsql/$GCP_DB_INSTANCE_CONNECTION_NAME
+        --set-env-vars=DB_SOCKET_PATH=/cloudsql/$GCP_DB_INSTANCE_CONNECTION_NAME
         --set-cloudsql-instances=$GCP_DB_INSTANCE_CONNECTION_NAME
         --allow-unauthenticated
   only:

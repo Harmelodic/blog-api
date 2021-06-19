@@ -36,7 +36,6 @@ cloud-run-prod:
     - echo $GCP_SERVICE_KEY > gcloud-service-key.json && gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_PROJECT_ID
   script:
-    - DB_INSTANCE_CONNECTION_NAME=$GCP_PROJECT_ID:$GCP_REGION:$GCP_DB_INSTANCE
     - >
         gcloud run deploy
         $CI_PROJECT_NAME
@@ -45,7 +44,7 @@ cloud-run-prod:
         --platform managed
         --port 8080
         --set-env-vars=CONTENT_URI=$CONTENT_URI,DB_SOCKET_PATH=/cloudsql/$DB_INSTANCE_CONNECTION_NAME
-        --set-cloudsql-instances=$DB_INSTANCE_CONNECTION_NAME
+        --set-cloudsql-instances=$GCP_DB_INSTANCE_CONNECTION_NAME
         --allow-unauthenticated
   only:
     - master

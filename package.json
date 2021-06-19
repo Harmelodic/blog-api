@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "blog-api",
   "version": "1.0.0",
   "description": "A place for opinions, lists, reviews and more!",
   "scripts": {
@@ -13,8 +13,7 @@
   "license": "UNLICENSED",
   "keywords": [
     "blog",
-    "harmelodic",
-    "scribbles"
+    "harmelodic"
   ],
   "author": "Harmelodic",
   "dependencies": {
@@ -37,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/Harmelodic/scribbles-api.git"
+    "url": "git+https://gitlab.com/Harmelodic/blog-api.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/Harmelodic/scribbles-api/issues"
+    "url": "https://gitlab.com/Harmelodic/blog-api/issues"
   },
-  "homepage": "https://gitlab.com/Harmelodic/scribbles-api#readme"
+  "homepage": "https://gitlab.com/Harmelodic/blog-api#readme"
 }

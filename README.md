@@ -1,4 +1,4 @@
-# scribbles
+# blog-api
 
 A place for opinions, lists, reviews and more!
 
@@ -7,13 +7,13 @@ A place for opinions, lists, reviews and more!
 ### Database
 
 ```sql
-CREATE DATABASE scribbles;
+CREATE DATABASE blog;
 ```
 
 ### Tables
 
 ```sql
-USE scribbles;
+USE blog;
 
 CREATE TABLE posts
 (
@@ -30,7 +30,7 @@ CREATE TABLE posts
 ### API Account
 
 ```sql
-CREATE USER 'scribbles-api'@'cloudsqlproxy~%' IDENTIFIED BY '';
+CREATE USER 'blog-api'@'cloudsqlproxy~%' IDENTIFIED BY '';
 
-GRANT SELECT, UPDATE, DELETE, INSERT ON scribbles.* TO 'scribbles-api'@'cloudsqlproxy~%';
+GRANT SELECT, UPDATE, DELETE, INSERT ON blog.* TO 'blog-api'@'cloudsqlproxy~%';
 ```

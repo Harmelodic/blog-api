@@ -8,6 +8,25 @@ globals:
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
-rules: {
-  object-curly-spacing: ['error', 'always']
-}
+rules: 
+  {
+    arrow-parens: [2, "as-needed", { "requireForBlockBody": true }],
+    indent: ["error", "tab", { "SwitchCase": 1 }],
+    max-len: [2, { "code": 100 }],
+    no-tabs: ["error", { allowIndentationTabs: true }],
+    object-curly-spacing: [2, "always"],
+    require-jsdoc:
+      [
+        "error",
+        {
+          "require":
+            {
+              "FunctionDeclaration": false,
+              "MethodDefinition": false,
+              "ClassDeclaration": false,
+              "ArrowFunctionExpression": false,
+              "FunctionExpression": false,
+            },
+        },
+      ],
+  }

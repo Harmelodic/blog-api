@@ -5,9 +5,9 @@ import categoryService from './service.js';
 const router = Router();
 
 router.route('/')
-    .get(async (req, res) => {
-      const categories = await categoryService.fetchAll();
-      res.send(categories);
-    });
+	.get(async (req, res) => {
+		const categories = await categoryService.fetchAll();
+		res.send(categories);
+	});
 
 export default router;

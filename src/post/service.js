@@ -3,11 +3,11 @@ import postRepository from './repository.js';
 const service = {};
 
 service.fetchAll = async () => {
-  return postRepository.fetchAll();
+	return postRepository.fetchAll();
 };
 
 service.fetchById = (id) => {
-  return postRepository.fetchById(id);
+	return postRepository.fetchById(id);
 };
 
 export default service;

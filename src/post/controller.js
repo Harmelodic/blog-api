@@ -5,13 +5,15 @@ import postService from './service.js';
 const router = Router();
 
 router.route('/')
-    .get((req, res) =>
-      postService.fetchAll().then((posts) =>
-        res.send(posts)));
+    .get(async (req, res) => {
+      const posts = await postService.fetchAll();
+      res.send(posts);
+    });
 
 router.route('/:id')
-    .get((req, res) =>
-      postService.fetchById(parseInt(req.params.id)).then((post) =>
-        res.send(post)));
+    .get(async (req, res) => {
+      const post = await postService.fetchById(parseInt(req.params.id));
+      res.send(post);
+    });
 
 export default router;

@@ -17,8 +17,8 @@
   ],
   "author": "Harmelodic",
   "dependencies": {
-    "@harmelodic/interfaces": "^2.0.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

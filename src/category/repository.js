@@ -1,4 +1,4 @@
-import { sql } from '@harmelodic/interfaces';
+import sql from '../database.js';
 import config from '../config.js';
 
 const databaseConnection = sql({

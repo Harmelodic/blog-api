@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/Harmelodic/blog-api.git"
+    "url": "git+https://github.com/Harmelodic/blog-api.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/Harmelodic/blog-api/issues"
+    "url": "https://github.com/Harmelodic/blog-api/issues"
   },
-  "homepage": "https://gitlab.com/Harmelodic/blog-api#readme"
+  "homepage": "https://github.com/Harmelodic/blog-api#readme"
 }

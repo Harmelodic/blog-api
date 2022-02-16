@@ -18,7 +18,6 @@ jobs:
           node-version: 17
       - run: npm i
       - run: npm test
-      - run: npm run build
 
 #  docker-gcp:
 #    needs:

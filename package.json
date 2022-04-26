@@ -22,12 +22,12 @@
   "devDependencies": {
     "@babel/core": "7.17.9",
     "@babel/preset-env": "7.16.11",
-    "babel-jest": "27.5.1",
+    "babel-jest": "28.0.1",
     "babel-loader": "8.2.5",
     "eslint": "8.14.0",
     "eslint-config-google": "0.14.0",
-    "jest": "27.5.1",
-    "jest-cli": "27.5.1",
+    "jest": "28.0.1",
+    "jest-cli": "28.0.1",
     "supertest": "6.2.2"
   },
   "directories": {

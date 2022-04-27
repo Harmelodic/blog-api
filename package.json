@@ -28,7 +28,7 @@
     "eslint-config-google": "0.14.0",
     "jest": "28.0.1",
     "jest-cli": "28.0.1",
-    "supertest": "6.2.2"
+    "supertest": "6.2.3"
   },
   "directories": {
     "test": "test"
